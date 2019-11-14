@@ -16,6 +16,11 @@ namespace WOS.Control
 
         void Update()
         {
+            PlayerRunUpdate();
+        }
+
+        private void PlayerRunUpdate()
+        {
             float controlThrow = Input.GetAxis("Horizontal"); //-1 to +1
             mover.Walk(controlThrow);
         }
