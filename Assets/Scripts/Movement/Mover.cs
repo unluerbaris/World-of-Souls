@@ -8,6 +8,8 @@ namespace WOS.Movement
     {
         [SerializeField] float walkSpeed = 6f;
 
+        bool isFacingRight = true;
+
         Rigidbody2D rb2D;
         Animator animator;
 
@@ -26,6 +28,25 @@ namespace WOS.Movement
             bool hasHorizontalSpeed = Mathf.Abs(rb2D.velocity.x) > Mathf.Epsilon;
 
             animator.SetBool("isWalking", hasHorizontalSpeed);
+
+            FlipSprite();
+        }
+
+        private void FlipSprite() // Rotate the sprite instead of scaling it with -1. So it can also rotate local x axis too.
+                                  // It is a better way if you are rotating your character before shoot.
+        {
+            bool hasHorizontalSpeed = Mathf.Abs(rb2D.velocity.x) > Mathf.Epsilon;
+
+            if (hasHorizontalSpeed && Mathf.Sign(rb2D.velocity.x) == -1 && isFacingRight)
+            {
+                isFacingRight = false;
+                transform.Rotate(0f, 180f, 0f);
+            }
+            else if (hasHorizontalSpeed && Mathf.Sign(rb2D.velocity.x) == 1 && !isFacingRight)
+            {
+                isFacingRight = true;
+                transform.Rotate(0f, 180f, 0f);
+            }
         }
     }
 }
