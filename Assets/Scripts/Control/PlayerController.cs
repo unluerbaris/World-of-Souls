@@ -21,6 +21,7 @@ namespace WOS.Control
         {
             PlayerRunUpdate();
             AttackUpdate();
+            JumpUpdate();
         }
 
         private void PlayerRunUpdate()
@@ -34,6 +35,14 @@ namespace WOS.Control
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 fighter.PlayAttackAnimation();
+            }
+        }
+
+        private void JumpUpdate()
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+            {
+                mover.Jump();
             }
         }
     }

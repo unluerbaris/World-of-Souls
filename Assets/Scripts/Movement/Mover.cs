@@ -7,6 +7,7 @@ namespace WOS.Movement
     public class Mover : MonoBehaviour
     {
         [SerializeField] float walkSpeed = 6f;
+        [SerializeField] float jumpForce = 5.8f;
 
         bool isFacingRight = true;
 
@@ -47,6 +48,13 @@ namespace WOS.Movement
                 isFacingRight = true;
                 transform.Rotate(0f, 180f, 0f);
             }
+        }
+
+        public void Jump() 
+        {
+            animator.SetBool("isJumping", true);
+            Vector2 jumpVelocity = new Vector2(0f, jumpForce);
+            rb2D.velocity += jumpVelocity;
         }
     }
 }
