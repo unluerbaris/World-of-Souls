@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace WOS.Movement
 
         bool isFacingRight = true;
         bool isJumping;
+        bool hasHorizontalSpeed;
 
         Rigidbody2D rb2D;
         Animator animator;
@@ -23,9 +25,17 @@ namespace WOS.Movement
             boxCollider2d = GetComponent<BoxCollider2D>();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             GroundCheck();
+            HasHorizontalSpeed();
+        }
+
+        private bool HasHorizontalSpeed()
+        {
+            //if x velocity's absolute value is more than epsilon(very close to zero) return true
+            hasHorizontalSpeed = Mathf.Abs(rb2D.velocity.x) > Mathf.Epsilon;
+            return hasHorizontalSpeed;
         }
 
         public void Walk(float controlThrow)
@@ -33,10 +43,7 @@ namespace WOS.Movement
             Vector2 characterVelocity = new Vector2(controlThrow * walkSpeed, rb2D.velocity.y);
             rb2D.velocity = characterVelocity;
 
-            //if x velocity's absolute value is more than epsilon(very close to zero) return true
-            bool hasHorizontalSpeed = Mathf.Abs(rb2D.velocity.x) > Mathf.Epsilon;
-
-            animator.SetBool("isWalking", hasHorizontalSpeed);
+            animator.SetBool("isWalking", HasHorizontalSpeed());
 
             FlipSprite();
         }
@@ -44,14 +51,12 @@ namespace WOS.Movement
         private void FlipSprite() // Rotate the sprite instead of scaling it with -1. So it can also rotate local x axis too.
                                   // It is a better way if you are rotating your character before shoot.
         {
-            bool hasHorizontalSpeed = Mathf.Abs(rb2D.velocity.x) > Mathf.Epsilon;
-
-            if (hasHorizontalSpeed && Mathf.Sign(rb2D.velocity.x) == -1 && isFacingRight)
+            if (HasHorizontalSpeed() && Mathf.Sign(rb2D.velocity.x) == -1 && isFacingRight)
             {
                 isFacingRight = false;
                 transform.Rotate(0f, 180f, 0f);
             }
-            else if (hasHorizontalSpeed && Mathf.Sign(rb2D.velocity.x) == 1 && !isFacingRight)
+            else if (HasHorizontalSpeed() && Mathf.Sign(rb2D.velocity.x) == 1 && !isFacingRight)
             {
                 isFacingRight = true;
                 transform.Rotate(0f, 180f, 0f);

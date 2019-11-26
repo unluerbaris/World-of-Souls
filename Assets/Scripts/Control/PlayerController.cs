@@ -19,18 +19,18 @@ namespace WOS.Control
 
         void Update()
         {
-            PlayerRunUpdate();
-            AttackUpdate();
-            JumpUpdate();
+            PlayerRunInput();
+            AttackInput();
+            JumpInput();
         }
 
-        private void PlayerRunUpdate()
+        private void PlayerRunInput()
         {
             float controlThrow = Input.GetAxis("Horizontal"); //-1 to +1
             mover.Walk(controlThrow);
         }
 
-        private void AttackUpdate()
+        private void AttackInput()
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -38,7 +38,7 @@ namespace WOS.Control
             }
         }
 
-        private void JumpUpdate()
+        private void JumpInput()
         {
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             {
