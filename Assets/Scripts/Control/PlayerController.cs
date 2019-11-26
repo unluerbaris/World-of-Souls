@@ -20,8 +20,8 @@ namespace WOS.Control
         void Update()
         {
             PlayerRunInput();
-            AttackInput();
             JumpInput();
+            AttackInput();
         }
 
         private void PlayerRunInput()
@@ -34,7 +34,7 @@ namespace WOS.Control
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                fighter.PlayAttackAnimation();
+                fighter.Attack();
             }
         }
 
