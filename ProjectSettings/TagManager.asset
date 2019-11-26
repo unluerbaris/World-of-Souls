@@ -41,3 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2110654321
+    locked: 0
+  - name: Mountains
+    uniqueID: 883271923
+    locked: 0
+  - name: Midground
+    uniqueID: 1850886247
+    locked: 0
+  - name: Objects
+    uniqueID: 2202267309
+    locked: 0
+  - name: Player
+    uniqueID: 742483037
+    locked: 0
+  - name: Ground
+    uniqueID: 15712725
+    locked: 0
