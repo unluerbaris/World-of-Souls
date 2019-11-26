@@ -10,14 +10,22 @@ namespace WOS.Movement
         [SerializeField] float jumpForce = 5.8f;
 
         bool isFacingRight = true;
+        bool isJumping;
 
         Rigidbody2D rb2D;
         Animator animator;
+        BoxCollider2D boxCollider2d;
 
         private void Start()
         {
             rb2D = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
+            boxCollider2d = GetComponent<BoxCollider2D>();
+        }
+
+        private void Update()
+        {
+            GroundCheck();
         }
 
         public void Walk(float controlThrow)
@@ -50,9 +58,18 @@ namespace WOS.Movement
             }
         }
 
+        private void GroundCheck()
+        {
+            isJumping = !boxCollider2d.IsTouchingLayers(LayerMask.GetMask("Ground"));
+            animator.SetBool("isJumping", isJumping);
+        }
+
         public void Jump() 
         {
-            animator.SetBool("isJumping", true);
+            if (isJumping) return; // avoids double jump
+
+            animator.SetTrigger("jumpTrigger"); // plays the animation once, till something triggers it again
+                                                // if the groundCheck is false, player exits the jumping anim state
             Vector2 jumpVelocity = new Vector2(0f, jumpForce);
             rb2D.velocity += jumpVelocity;
         }
