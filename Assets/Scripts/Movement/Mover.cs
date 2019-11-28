@@ -11,7 +11,6 @@ namespace WOS.Movement
         [SerializeField] float jumpForce = 5.8f;
 
         bool isFacingRight = true;
-        bool isJumping;
         bool hasHorizontalSpeed;
 
         Rigidbody2D rb2D;
@@ -27,7 +26,7 @@ namespace WOS.Movement
 
         private void FixedUpdate()
         {
-            GroundCheck();
+            IsJumping();
             HasHorizontalSpeed();
         }
 
@@ -63,15 +62,16 @@ namespace WOS.Movement
             }
         }
 
-        private void GroundCheck()
+        public bool IsJumping()
         {
-            isJumping = !boxCollider2d.IsTouchingLayers(LayerMask.GetMask("Ground"));
+            bool isJumping = !boxCollider2d.IsTouchingLayers(LayerMask.GetMask("Ground"));
             animator.SetBool("isJumping", isJumping);
+            return isJumping;
         }
 
         public void Jump() 
         {
-            if (isJumping) return; // avoids double jump
+            if (IsJumping()) return; // avoids double jump
 
             animator.SetTrigger("jumpTrigger"); // plays the animation once, till something triggers it again
                                                 // if the groundCheck is false, player exits the jumping anim state
