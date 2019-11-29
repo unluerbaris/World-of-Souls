@@ -10,6 +10,7 @@ namespace WOS.Core
         [SerializeField] GameObject[] backgrounds;
         private Camera mainCamera;
         private Vector2 screenBounds;
+        private Vector3 lastScreenPosition;
 
         void Awake()
         {
@@ -21,6 +22,8 @@ namespace WOS.Core
             {
                 LoadChildObjects(obj);
             }
+
+            lastScreenPosition = transform.position;
         }
 
         void LateUpdate()
@@ -28,7 +31,16 @@ namespace WOS.Core
             foreach (GameObject obj in backgrounds)
             {
                 RepositionChildObjects(obj);
+
+                // Parallax effect
+                // if the object has higher z value, moves with a higher speed and gets closer to the camera speed 
+                float parallaxSpeed = 1 - Mathf.Clamp01(Mathf.Abs(transform.position.z /
+                                                                  obj.transform.position.z));
+                float difference = transform.position.x - lastScreenPosition.x;
+                obj.transform.Translate(Vector3.right * difference * parallaxSpeed);
             }
+
+            lastScreenPosition = transform.position;
         }
 
         private void LoadChildObjects(GameObject obj) // call this from Awake() method
