@@ -26,7 +26,10 @@ namespace WOS.Movement
 
         private void FixedUpdate()
         {
-            IsJumping();
+            if (gameObject.tag == "Player")
+            {
+                IsJumping();
+            }
             HasHorizontalSpeed();
         }
 
