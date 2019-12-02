@@ -45,12 +45,15 @@ namespace WOS.Movement
             Vector2 characterVelocity = new Vector2(controlThrow * walkSpeed, rb2D.velocity.y);
             rb2D.velocity = characterVelocity;
 
-            animator.SetBool("isWalking", HasHorizontalSpeed());
+            if (gameObject.tag == "Player")
+            {
+                animator.SetBool("isWalking", HasHorizontalSpeed());
+            }
 
             FlipSprite();
         }
 
-        private void FlipSprite() // Rotate the sprite instead of scaling it with -1. So it can also rotate local x axis too.
+        public void FlipSprite() // Rotate the sprite instead of scaling it with -1. So it can also rotate local x axis too.
                                   // It is a better way if you are rotating your character before shoot.
         {
             if (HasHorizontalSpeed() && Mathf.Sign(rb2D.velocity.x) == -1 && isFacingRight)
