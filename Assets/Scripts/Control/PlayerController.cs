@@ -48,7 +48,7 @@ namespace WOS.Control
             if (Input.GetKeyDown(KeyCode.Space) && !isAttacking)
             {
                 isAttacking = true;
-                fighter.Attack();
+                StartCoroutine(fighter.Attack());
 
                 // don't attack again before attacking animation ends
                 float animLength = animator.GetCurrentAnimatorStateInfo(0).length;

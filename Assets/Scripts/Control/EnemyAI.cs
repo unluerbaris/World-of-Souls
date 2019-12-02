@@ -27,6 +27,14 @@ namespace WOS.Control
             SetMovingSpeed();
         }
 
+        private void OnTriggerEnter2D(Collider2D collision)// todo move it to another class later
+        {
+            if (collision.gameObject.tag == "AttackHitbox")
+            {
+                Destroy(gameObject);
+            }
+        }
+
         private void SetMovingSpeed()
         {
             if (DistanceToPlayer() < slowDownDistance)
