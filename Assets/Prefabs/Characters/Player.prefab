@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 447155619}
   - component: {fileID: 8653533374441269537}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawn Trigger
   m_TagString: Respawn
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1618902083}
   - component: {fileID: 1618902084}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Attack Hitbox
   m_TagString: AttackHitbox
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 4429459400375521891}
   - component: {fileID: 4429459400375521894}
   - component: {fileID: 4429459400375521892}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}

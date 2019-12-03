@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4587009159067869272}
   - component: {fileID: 4587009159067869275}
   m_Layer: 9
-  m_Name: Skeleton
+  m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,9 +75,9 @@ SpriteRenderer:
   m_SortingLayerID: -773755483
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 70503d71a0abb4818823e52b03def6e7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1d5c2b524d7734240a82bc6b06f841c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.75, y: 3.25}
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2f258c97d1959409961087eb532215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 2.5
+  walkSpeed: 2
   jumpForce: 5.8
 --- !u!114 &4587009159067869273
 MonoBehaviour:
@@ -159,7 +159,7 @@ Animator:
   m_GameObject: {fileID: 4587009159067869276}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5f6c1e516b0d6f348a05387fa2159efe, type: 2}
+  m_Controller: {fileID: 9100000, guid: e793657c51f0dbc498d77d0a201f2ae6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -181,16 +181,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.039304852, y: -0.23156047}
+  m_Offset: {x: -0.03988099, y: -0.32128942}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.8333334, y: 2.1666667}
+    oldSize: {x: 1.85, y: 3.25}
     newSize: {x: 2.75, y: 3.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3546989, y: 1.6992698}
+  m_Size: {x: 1.2708416, y: 2.4528582}
   m_EdgeRadius: 0
