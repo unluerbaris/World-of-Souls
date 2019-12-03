@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 447155619}
-  - component: {fileID: 447155620}
+  - component: {fileID: 8653533374441269537}
   m_Layer: 0
   m_Name: Spawn Trigger
   m_TagString: Respawn
@@ -31,8 +31,8 @@ Transform:
   m_Father: {fileID: 4429459400375521890}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &447155620
-CircleCollider2D:
+--- !u!61 &8653533374441269537
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -45,8 +45,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 14
+  m_Size: {x: 22, y: 12}
+  m_EdgeRadius: 0
 --- !u!1 &1618902082
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +101,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.031023145, y: -0.17083949}
+  m_Offset: {x: -0.10915613, y: -0.17083949}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -102,7 +112,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1551158, y: 0.53428686}
+  m_Size: {x: 0.99884987, y: 0.53428686}
   m_EdgeRadius: 0
 --- !u!1 &4429459400375521900
 GameObject:
@@ -208,7 +218,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f6911fabbb02036479d829c0c24b24cf, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
