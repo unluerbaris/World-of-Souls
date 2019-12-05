@@ -124,8 +124,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1618902083}
   - component: {fileID: 1618902084}
-  m_Layer: 10
-  m_Name: Attack Hitbox
+  - component: {fileID: 977398197}
+  m_Layer: 11
+  m_Name: Weapon
   m_TagString: AttackHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,6 +172,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.99884987, y: 0.53428686}
   m_EdgeRadius: 0
+--- !u!114 &977398197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618902082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366c748199955224b86b6f56329d45e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4429459400375521900
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +322,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f19b06d3aad9b48999917b32814bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackHitbox: {fileID: 1618902082}
   timeBetweenAttacks: 0.25
 --- !u!114 &4429459400375521891
 MonoBehaviour:
@@ -323,6 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446e1bd32f393624a8b693752a85873d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackHitbox: {fileID: 1618902082}
 --- !u!95 &4429459400375521894
 Animator:
   serializedVersion: 3

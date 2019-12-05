@@ -16,9 +16,10 @@ GameObject:
   - component: {fileID: 4587009159067869273}
   - component: {fileID: 4587009159067869272}
   - component: {fileID: 4587009159067869275}
+  - component: {fileID: -2431099992791871451}
   m_Layer: 9
   m_Name: Skeleton
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f19b06d3aad9b48999917b32814bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackHitbox: {fileID: 0}
   timeBetweenAttacks: 0.25
 --- !u!95 &4587009159067869272
 Animator:
@@ -194,3 +194,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3546989, y: 1.6992698}
   m_EdgeRadius: 0
+--- !u!114 &-2431099992791871451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587009159067869276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9606d7f8b85b3db40aaf7a1fcaff447d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100

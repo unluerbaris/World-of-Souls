@@ -9,7 +9,6 @@ namespace WOS.Control
     {
         GameObject target;
         Mover mover;
-        Animator animator;
 
         [SerializeField] float slowDownDistance = 5f;
         [SerializeField] float slowDownSpeedFactor = 0.65f;
@@ -20,22 +19,12 @@ namespace WOS.Control
         {
             mover = GetComponent<Mover>();
             target = GameObject.FindWithTag("Player");
-            animator = GetComponent<Animator>();
         }
 
         void Update()
         {
             SetDirection();
             SetMovingSpeed();
-        }
-
-        private void OnTriggerEnter2D(Collider2D collision)// todo move it to another class later
-        {
-            if (collision.gameObject.tag == "AttackHitbox")
-            {
-                animator.SetTrigger("isDead");
-                Destroy(gameObject, 0.3f);
-            }
         }
 
         private void SetMovingSpeed()

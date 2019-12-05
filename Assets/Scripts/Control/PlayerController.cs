@@ -12,6 +12,8 @@ namespace WOS.Control
         Fighter fighter;
         Animator animator;
 
+        [SerializeField] GameObject attackHitbox;
+
         bool isAttacking = false;
 
         private void Start()
@@ -19,6 +21,7 @@ namespace WOS.Control
             mover = GetComponent<Mover>();
             fighter = GetComponent<Fighter>();
             animator = GetComponent<Animator>();
+            attackHitbox.SetActive(false);
         }
 
         void Update()
@@ -48,7 +51,12 @@ namespace WOS.Control
             if (Input.GetKeyDown(KeyCode.Space) && !isAttacking)
             {
                 isAttacking = true;
-                StartCoroutine(fighter.Attack());
+                
+                fighter.Attack();
+                attackHitbox.SetActive(true);
+
+                yield return new WaitForSeconds(0.1f); // wait for disable the attack hitbox
+                attackHitbox.SetActive(false);
 
                 // don't attack again before attacking animation ends
                 float animLength = animator.GetCurrentAnimatorStateInfo(0).length;
