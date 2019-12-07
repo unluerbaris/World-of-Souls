@@ -7,7 +7,7 @@ namespace WOS.Combat
 {
     public class Weapon : MonoBehaviour
     {
-        [SerializeField] float weaponDamage = 50;
+        [SerializeField] float weaponDamage = 50f;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -19,8 +19,9 @@ namespace WOS.Combat
 
         private void DoDamage(Collider2D collision, float damage)
         {
-            Health enemyHealth = collision.GetComponent<Health>();
-            enemyHealth.TakeDamage(damage);
+            EnemyHealth enemyHealth = collision.GetComponent<EnemyHealth>();
+            enemyHealth.gotHit = true;
+            enemyHealth.damageTaken = weaponDamage;
         }
     }
 }
