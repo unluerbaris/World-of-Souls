@@ -57,6 +57,10 @@ namespace WOS.Control
 
         private float DistanceToPlayer()
         {
+            if (target == null)
+            {
+                return 10; // setting the distence of the player to 10 makes enemies walk, after player dies
+            }
             float distanceToThePlayer = transform.position.x - target.transform.position.x;
             return distanceToThePlayer;
         }

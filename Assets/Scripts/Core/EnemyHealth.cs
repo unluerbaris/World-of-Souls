@@ -10,6 +10,7 @@ namespace WOS.Core
         Animator animator;
         EnemyAI enemyAI;
         SpriteRenderer spriteRenderer;
+        Rigidbody2D rb2D;
 
         [SerializeField] float health = 100f;
         [SerializeField] float activateEnemyTime = 0.6f; // after got hit
@@ -25,6 +26,7 @@ namespace WOS.Core
             animator = GetComponent<Animator>();
             enemyAI = GetComponent<EnemyAI>();
             spriteRenderer = GetComponent<SpriteRenderer>();
+            rb2D = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
@@ -60,7 +62,7 @@ namespace WOS.Core
             enemyAI.enabled = false;
 
             // make the velocity zero, and all enemies will be knockbacked with similar force
-            GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
+            rb2D.velocity = new Vector3(0, 0, 0);
 
             // gives the character transparancy
             spriteRenderer.material.color = new Color(1f, 1f, 1f, 0.6f); 
@@ -70,7 +72,7 @@ namespace WOS.Core
             //calculate the normal vector between enemy and player and add force
             Vector2 dir = (transform.position - player.transform.position).normalized; 
             dir.y = 0.3f;
-            GetComponent<Rigidbody2D>().AddForce(dir * knockBackForce);
+            rb2D.AddForce(dir * knockBackForce);
         }
 
         private void EnableFunctions()
@@ -91,7 +93,7 @@ namespace WOS.Core
 
             // avoid any position change
             enemyAI.enabled = false;
-            GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
+            rb2D.velocity = new Vector3(0, 0, 0);
 
             animator.SetTrigger("isDead");
             Destroy(gameObject, 0.3f);
