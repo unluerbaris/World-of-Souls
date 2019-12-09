@@ -9,17 +9,17 @@ namespace WOS.Combat
     {
         [SerializeField] float weaponDamage = 50f;
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collision.gameObject.tag == "Enemy")
+            if (collider.gameObject.tag == "Enemy")
             {
-                DoDamage(collision, weaponDamage);
+                DoDamage(collider, weaponDamage);
             }
         }
 
-        private void DoDamage(Collider2D collision, float damage)
+        private void DoDamage(Collider2D collider, float damage)
         {
-            EnemyHealth enemyHealth = collision.GetComponent<EnemyHealth>();
+            EnemyHealth enemyHealth = collider.GetComponent<EnemyHealth>();
             enemyHealth.gotHit = true;
             enemyHealth.damageTaken = weaponDamage;
         }

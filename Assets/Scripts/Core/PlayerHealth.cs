@@ -13,23 +13,15 @@ namespace WOS.Core
         [SerializeField] float health = 250f;
         float transparentTime = 1f; // after got hit
         bool isDead = false;
-        bool gotHit = false;
+        [HideInInspector] public bool gotHit = false;
         bool untouchableState = false;
-        float damageTaken = 50f; // decide it from enemy weapon later. give weapon to the enemy
+        [HideInInspector] public float damageTaken;
 
         private void Start()
         {
             animator = GetComponent<Animator>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             rb2D = GetComponent<Rigidbody2D>();
-        }
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.gameObject.tag == "Enemy")
-            {
-                gotHit = true;
-            }
         }
 
         private void Update() 
@@ -45,7 +37,7 @@ namespace WOS.Core
             untouchableState = true;
 
             health = Mathf.Max(health - damage, 0); // it returns 0 when health tries to go below 0
-
+            Debug.Log(health);
             if (health <= 0 && !isDead)
             {
                 Die();
@@ -59,7 +51,9 @@ namespace WOS.Core
             }
 
             untouchableState = false;
-            gotHit = false;
+            gotHit = false; // make sure the gothit value has been reset. 
+                            // sometimes if might be true at the end of the coroutine,
+                            // and it causes the player lose health
         }
 
         private void TransparentEffect()
