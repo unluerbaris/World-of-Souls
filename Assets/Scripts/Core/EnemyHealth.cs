@@ -46,13 +46,13 @@ namespace WOS.Core
 
             if (health <= 0 && !isDead)
             {
-                audioManager.PlaySound("Hit1"); // play hit sfx
+                PlayRandomHitSFX();
                 Die();
             }
 
             if (!isDead)
             {
-                audioManager.PlaySound("Hit1"); // play hit sfx
+                PlayRandomHitSFX();
                 KnockBackEffect();
                 yield return new WaitForSeconds(activateEnemyTime);
                 EnableFunctions();
@@ -101,6 +101,28 @@ namespace WOS.Core
 
             animator.SetTrigger("isDead");
             Destroy(gameObject, 0.3f);
+        }
+
+        private void PlayRandomHitSFX()
+        {
+            int randomNumber = Random.Range(0, 3);
+
+            switch (randomNumber)
+            {
+                case 0:
+                    audioManager.PlaySound("Hit1");
+                    break;
+                case 1:
+                    audioManager.PlaySound("Hit2");
+                    break;
+                case 2:
+                    audioManager.PlaySound("Hit3");
+                    break;
+                default:
+                    Debug.Log("SFX not found!!");
+                    break;
+            }
+
         }
     }
 }

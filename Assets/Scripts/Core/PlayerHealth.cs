@@ -37,7 +37,6 @@ namespace WOS.Core
             untouchableState = true;
 
             health = Mathf.Max(health - damage, 0); // it returns 0 when health tries to go below 0
-            Debug.Log(health);
             if (health <= 0 && !isDead)
             {
                 Die();
