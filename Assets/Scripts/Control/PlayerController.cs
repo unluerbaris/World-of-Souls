@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WOS.Movement;
 using WOS.Combat;
+using WOS.Core;
 
 namespace WOS.Control
 {
@@ -11,6 +12,7 @@ namespace WOS.Control
         Mover mover;
         Fighter fighter;
         Animator animator;
+        AudioManager audioManager;
 
         [SerializeField] GameObject attackHitbox;
 
@@ -21,6 +23,7 @@ namespace WOS.Control
             mover = GetComponent<Mover>();
             fighter = GetComponent<Fighter>();
             animator = GetComponent<Animator>();
+            audioManager = FindObjectOfType<AudioManager>();
             attackHitbox.SetActive(false);
         }
 
@@ -51,7 +54,9 @@ namespace WOS.Control
             if (Input.GetKeyDown(KeyCode.Space) && !isAttacking)
             {
                 isAttacking = true;
-                
+
+                audioManager.PlaySound("SwordSwipe"); // play sword swiping sfx
+
                 fighter.Attack();
                 attackHitbox.SetActive(true);
 

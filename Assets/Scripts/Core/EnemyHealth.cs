@@ -11,6 +11,7 @@ namespace WOS.Core
         EnemyAI enemyAI;
         SpriteRenderer spriteRenderer;
         Rigidbody2D rb2D;
+        AudioManager audioManager;
 
         [SerializeField] float health = 100f;
         [SerializeField] float activateEnemyTime = 0.6f; // after got hit
@@ -27,6 +28,7 @@ namespace WOS.Core
             enemyAI = GetComponent<EnemyAI>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             rb2D = GetComponent<Rigidbody2D>();
+            audioManager = FindObjectOfType<AudioManager>();
         }
 
         private void Update()
@@ -44,11 +46,13 @@ namespace WOS.Core
 
             if (health <= 0 && !isDead)
             {
+                audioManager.PlaySound("Hit1"); // play hit sfx
                 Die();
             }
 
             if (!isDead)
             {
+                audioManager.PlaySound("Hit1"); // play hit sfx
                 KnockBackEffect();
                 yield return new WaitForSeconds(activateEnemyTime);
                 EnableFunctions();
