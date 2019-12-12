@@ -80,3 +80,9 @@ MonoBehaviour:
     pitch: 1
     audioSource: {fileID: 0}
     loop: 0
+  - clip: {fileID: 8300000, guid: 7edc89948410cb241b160df87992fd75, type: 3}
+    soundName: HeroDeath
+    volume: 0.2
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0

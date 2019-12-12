@@ -41,6 +41,7 @@ namespace WOS.Core
             health = Mathf.Max(health - damage, 0); // it returns 0 when health tries to go below 0
             if (health <= 0 && !isDead)
             {
+                audioManager.PlaySound("HeroDeath");
                 Die();
             }
 
