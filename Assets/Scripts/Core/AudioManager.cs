@@ -36,6 +36,11 @@ namespace WOS.Core
             }
         }
 
+        private void Start()
+        {
+            PlaySound("Theme"); // play theme 
+        }
+
         public void PlaySound(string name)
         {
             Sound s = Array.Find(sounds, sound => sound.soundName == name);
