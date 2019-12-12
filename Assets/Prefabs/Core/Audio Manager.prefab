@@ -52,19 +52,19 @@ MonoBehaviour:
     loop: 0
   - clip: {fileID: 8300000, guid: 7e6babdb15849c943bb5c3dda96512ab, type: 3}
     soundName: Hit1
-    volume: 0.7
+    volume: 1
     pitch: 1
     audioSource: {fileID: 0}
     loop: 0
   - clip: {fileID: 8300000, guid: 0d44f8f8b40c840449adca3f1c1f2ba0, type: 3}
     soundName: Hit2
-    volume: 0.7
+    volume: 1
     pitch: 1
     audioSource: {fileID: 0}
     loop: 0
   - clip: {fileID: 8300000, guid: 0d55cfc1f6ebc9a40a2cb01e04f17705, type: 3}
     soundName: Hit3
-    volume: 0.7
+    volume: 1
     pitch: 1
     audioSource: {fileID: 0}
     loop: 0
@@ -74,3 +74,9 @@ MonoBehaviour:
     pitch: 1
     audioSource: {fileID: 0}
     loop: 1
+  - clip: {fileID: 8300000, guid: c4c9285eef9c4ab419000ae4f90e0ec2, type: 3}
+    soundName: HeroDamaged
+    volume: 0.2
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0

@@ -9,6 +9,7 @@ namespace WOS.Core
         Animator animator;
         SpriteRenderer spriteRenderer;
         Rigidbody2D rb2D;
+        AudioManager audioManager;
 
         [SerializeField] float health = 250f;
         float transparentTime = 1f; // after got hit
@@ -22,6 +23,7 @@ namespace WOS.Core
             animator = GetComponent<Animator>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             rb2D = GetComponent<Rigidbody2D>();
+            audioManager = FindObjectOfType<AudioManager>();
         }
 
         private void Update() 
@@ -44,6 +46,7 @@ namespace WOS.Core
 
             if (!isDead)
             {
+                audioManager.PlaySound("HeroDamaged");
                 TransparentEffect();
                 yield return new WaitForSeconds(transparentTime);
                 EndTransparentEffect();
