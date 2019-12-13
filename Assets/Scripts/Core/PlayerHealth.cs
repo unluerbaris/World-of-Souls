@@ -10,8 +10,11 @@ namespace WOS.Core
         SpriteRenderer spriteRenderer;
         Rigidbody2D rb2D;
         AudioManager audioManager;
+        [SerializeField] GameObject healthBarObject;
+        HealthBar healthBar;
 
         [SerializeField] float health = 250f;
+        float startHealth;
         float transparentTime = 1f; // after got hit
         bool isDead = false;
         [HideInInspector] public bool gotHit = false;
@@ -20,10 +23,18 @@ namespace WOS.Core
 
         private void Start()
         {
+            SetHealthBarAtStart();
             animator = GetComponent<Animator>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             rb2D = GetComponent<Rigidbody2D>();
             audioManager = FindObjectOfType<AudioManager>();
+        }
+
+        private void SetHealthBarAtStart()
+        {
+            healthBar = healthBarObject.GetComponent<HealthBar>();
+            startHealth = health;
+            healthBar.ScaleHealthBar(health, startHealth);
         }
 
         private void Update() 
@@ -39,6 +50,8 @@ namespace WOS.Core
             untouchableState = true;
 
             health = Mathf.Max(health - damage, 0); // it returns 0 when health tries to go below 0
+            healthBar.ScaleHealthBar(health, startHealth); // update the new health value on health bar
+
             if (health <= 0 && !isDead)
             {
                 audioManager.PlaySound("HeroDeath");
