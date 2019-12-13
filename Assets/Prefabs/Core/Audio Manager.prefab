@@ -80,6 +80,12 @@ MonoBehaviour:
     pitch: 1
     audioSource: {fileID: 0}
     loop: 0
+  - clip: {fileID: 8300000, guid: 46184e9a87db12847b585a012e78742b, type: 3}
+    soundName: EnemyDeath
+    volume: 0.6
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
   - clip: {fileID: 8300000, guid: 7edc89948410cb241b160df87992fd75, type: 3}
     soundName: HeroDeath
     volume: 0.2

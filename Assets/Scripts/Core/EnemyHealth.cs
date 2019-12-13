@@ -46,7 +46,7 @@ namespace WOS.Core
 
             if (health <= 0 && !isDead)
             {
-                PlayRandomHitSFX();
+                audioManager.PlaySound("EnemyDeath");
                 Die();
             }
 
