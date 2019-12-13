@@ -60,7 +60,7 @@ namespace WOS.Control
                 fighter.Attack();
                 attackHitbox.SetActive(true);
 
-                yield return new WaitForSeconds(0.1f); // wait for disable the attack hitbox
+                yield return new WaitForSeconds(0.1f); // wait for disabling the attack hitbox
                 attackHitbox.SetActive(false);
 
                 // don't attack again before attacking animation ends
