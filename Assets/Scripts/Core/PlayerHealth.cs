@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WOS.Control;
 
 namespace WOS.Core
 {
@@ -12,6 +13,8 @@ namespace WOS.Core
         AudioManager audioManager;
         [SerializeField] GameObject healthBarObject;
         HealthBar healthBar;
+        PlayerController playerController;
+        
 
         [SerializeField] float health = 250f;
         float startHealth;
@@ -28,6 +31,7 @@ namespace WOS.Core
             spriteRenderer = GetComponent<SpriteRenderer>();
             rb2D = GetComponent<Rigidbody2D>();
             audioManager = FindObjectOfType<AudioManager>();
+            playerController = GetComponent<PlayerController>();
         }
 
         private void SetHealthBarAtStart()
@@ -88,9 +92,12 @@ namespace WOS.Core
         {
             isDead = true;
 
-            audioManager.PlaySound("HeroDeath");
             // avoid any position change
+            playerController.enabled = false;
             rb2D.velocity = new Vector3(0, 0, 0);
+
+            animator.SetTrigger("isDead");
+            audioManager.PlaySound("HeroDeath");
 
            // animator.SetTrigger("isDead");
             Destroy(gameObject, 0.3f);
