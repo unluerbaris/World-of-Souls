@@ -49,8 +49,6 @@ namespace WOS.Core
 
             if (health <= 0 && !isDead)
             {
-                audioManager.PlaySound("EnemyDeath");
-                score.AddToScore(enemyKillPoints);
                 Die();
             }
 
@@ -99,6 +97,8 @@ namespace WOS.Core
         {
             isDead = true;
 
+            audioManager.PlaySound("EnemyDeath");
+            score.AddToScore(enemyKillPoints);
             // avoid any position change
             enemyAI.enabled = false;
             rb2D.velocity = new Vector3(0, 0, 0);
@@ -127,6 +127,14 @@ namespace WOS.Core
                     break;
             }
 
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.tag == "Obstacle")
+            {
+                Die();
+            }
         }
     }
 }

@@ -54,7 +54,6 @@ namespace WOS.Core
 
             if (health <= 0 && !isDead)
             {
-                audioManager.PlaySound("HeroDeath");
                 Die();
             }
 
@@ -89,11 +88,20 @@ namespace WOS.Core
         {
             isDead = true;
 
+            audioManager.PlaySound("HeroDeath");
             // avoid any position change
             rb2D.velocity = new Vector3(0, 0, 0);
 
            // animator.SetTrigger("isDead");
             Destroy(gameObject, 0.3f);
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if(collision.gameObject.tag == "Obstacle")
+            {
+                Die();
+            }
         }
     }
 }

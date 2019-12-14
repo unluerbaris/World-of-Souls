@@ -8,6 +8,7 @@ TagManager:
   - RespawnIn
   - RespawnOut
   - Enemy
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Enemy
   - Player
   - AttackHitbox
-  - 
+  - Obstacle
   - 
   - 
   - 
@@ -62,6 +63,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 3521211813
+    locked: 0
+  - name: Obstacle
+    uniqueID: 2187095419
     locked: 0
   - name: Front Objects
     uniqueID: 2202267309
