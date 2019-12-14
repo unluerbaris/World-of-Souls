@@ -9,12 +9,14 @@ namespace WOS.Core
     {
         Animator animator;
         EnemyAI enemyAI;
+        Score score;
         SpriteRenderer spriteRenderer;
         Rigidbody2D rb2D;
         AudioManager audioManager;
 
         [SerializeField] float health = 100f;
         [SerializeField] float activateEnemyTime = 0.6f; // after got hit
+        [SerializeField] int enemyKillPoints = 50;
         float knockBackForce = 200f;
         [HideInInspector] public float damageTaken;
 
@@ -26,6 +28,7 @@ namespace WOS.Core
         {
             animator = GetComponent<Animator>();
             enemyAI = GetComponent<EnemyAI>();
+            score = FindObjectOfType<Score>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             rb2D = GetComponent<Rigidbody2D>();
             audioManager = FindObjectOfType<AudioManager>();
@@ -47,6 +50,7 @@ namespace WOS.Core
             if (health <= 0 && !isDead)
             {
                 audioManager.PlaySound("EnemyDeath");
+                score.AddToScore(enemyKillPoints);
                 Die();
             }
 

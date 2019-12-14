@@ -209,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   activateEnemyTime: 0.6
+  enemyKillPoints: 45
   damageTaken: 0
   gotHit: 0
 --- !u!114 &6761811548881763432
