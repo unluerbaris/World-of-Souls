@@ -107,7 +107,7 @@ namespace WOS.Core
         {
             if(collision.gameObject.tag == "Obstacle")
             {
-                Die();
+                StartCoroutine(TakeDamage(health)); // health - health = 0
             }
         }
     }
