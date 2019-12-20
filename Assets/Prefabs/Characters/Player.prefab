@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 447155619}
   - component: {fileID: 8653533374441269537}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Spawn Trigger 1
   m_TagString: RespawnIn
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1554276276}
   - component: {fileID: 1554276277}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Spawn Trigger 2
   m_TagString: RespawnOut
   m_Icon: {fileID: 0}
@@ -352,6 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarObject: {fileID: 0}
   health: 250
+  healthCanGetFromPotions: 50
   gotHit: 0
   damageTaken: 0
 --- !u!95 &4429459400375521894
@@ -409,7 +410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5809209181533444183}
   - component: {fileID: 1559100193633002797}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Spawn Trigger 4
   m_TagString: RespawnOut
   m_Icon: {fileID: 0}
@@ -466,7 +467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6768251042290082742}
   - component: {fileID: 4887021227012247138}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Spawn Trigger 3
   m_TagString: RespawnIn
   m_Icon: {fileID: 0}

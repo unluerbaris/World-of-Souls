@@ -17,6 +17,7 @@ namespace WOS.Core
 
         [SerializeField] float health = 250f;
         float startHealth;
+        [SerializeField] float healthCanGetFromPotions = 50f;
         float transparentTime = 1f; // after got hit
         bool isDead = false;
         [HideInInspector] public bool gotHit = false;
@@ -74,6 +75,12 @@ namespace WOS.Core
                             // and it causes the player lose health
         }
 
+        public void AddHealth(float healthPotionValue)
+        {
+            health = Mathf.Min(health + healthPotionValue, startHealth);
+            healthBar.ScaleHealthBar(health, startHealth);
+        }
+
         private void TransparentEffect()
         {
             rb2D.velocity = new Vector3(0, 0, 0);
@@ -108,6 +115,19 @@ namespace WOS.Core
             {
                 StartCoroutine(TakeDamage(health)); // health - health = 0
             }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            bool isPotionUsed = false;
+
+            if (collision.gameObject.tag == "HealthPotion" && !isPotionUsed)
+            {
+                AddHealth(healthCanGetFromPotions);
+                Destroy(collision.gameObject);
+            }
+
+            isPotionUsed = true;
         }
     }
 }
