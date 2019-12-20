@@ -48,7 +48,7 @@ namespace WOS.Core
 
             if (health <= 0 && !isDead)
             {
-                Die();
+                Die(enemyKillPoints);
             }
 
             if (!isDead)
@@ -92,12 +92,12 @@ namespace WOS.Core
             return isDead;
         }
 
-        private void Die()
+        private void Die(int pointsToPlayer)
         {
             isDead = true;
 
             audioManager.PlaySound("EnemyDeath");
-            score.AddToScore(enemyKillPoints);
+            score.AddToScore(pointsToPlayer);
             // avoid any position change
             enemyAI.enabled = false;
             rb2D.velocity = new Vector3(0, 0, 0);
@@ -132,7 +132,7 @@ namespace WOS.Core
         {
             if (collision.gameObject.tag == "Obstacle")
             {
-                Die();
+                Die(0); // if player doesn't kill the enemy by itself, no points for it
             }
         }
     }
