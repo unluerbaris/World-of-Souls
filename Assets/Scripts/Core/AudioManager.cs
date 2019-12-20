@@ -22,8 +22,6 @@ namespace WOS.Core
                 return;
             }
 
-            //  DontDestroyOnLoad(gameObject);
-
             foreach (Sound sound in sounds)
             {
                 sound.audioSource = gameObject.AddComponent<AudioSource>();
