@@ -92,3 +92,9 @@ MonoBehaviour:
     pitch: 1
     audioSource: {fileID: 0}
     loop: 0
+  - clip: {fileID: 8300000, guid: f4772f0e629fc3345bfdf0e390eb71ea, type: 3}
+    soundName: HealthPick
+    volume: 0.5
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0

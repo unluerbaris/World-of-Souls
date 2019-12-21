@@ -77,6 +77,7 @@ namespace WOS.Core
 
         public void AddHealth(float healthPotionValue)
         {
+            audioManager.PlaySound("HealthPick");
             health = Mathf.Min(health + healthPotionValue, startHealth);
             healthBar.ScaleHealthBar(health, startHealth);
         }
