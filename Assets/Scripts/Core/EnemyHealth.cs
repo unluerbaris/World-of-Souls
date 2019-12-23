@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using WOS.Control;
+using WOS.Combat;
 
 namespace WOS.Core
 {
@@ -12,11 +13,13 @@ namespace WOS.Core
         SpriteRenderer spriteRenderer;
         Rigidbody2D rb2D;
         AudioManager audioManager;
+        EnemyWeapon enemyWeapon;
 
         [SerializeField] float health = 100f;
         [SerializeField] float activateEnemyTime = 0.6f; // after got hit
         [SerializeField] int enemyKillPoints = 50;
         float knockBackForce = 200f;
+        float currentWeaponDamage;
         [HideInInspector] public float damageTaken;
 
         bool isDead = false;
@@ -27,6 +30,8 @@ namespace WOS.Core
         {
             animator = GetComponent<Animator>();
             enemyAI = GetComponent<EnemyAI>();
+            enemyWeapon = GetComponent<EnemyWeapon>();
+            currentWeaponDamage = enemyWeapon.weaponDamage; // get the current weapon damage value
             score = FindObjectOfType<Score>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             rb2D = GetComponent<Rigidbody2D>();
@@ -38,8 +43,8 @@ namespace WOS.Core
             if (gotHit && enemyAI.enabled)
             {
                 StartCoroutine(TakeDamage(damageTaken));
-                gotHit = false;
             }
+            gotHit = false;
         }
 
         public IEnumerator TakeDamage(float damage)
@@ -65,6 +70,7 @@ namespace WOS.Core
             // disable the functions first
             animator.enabled = false; 
             enemyAI.enabled = false;
+            enemyWeapon.weaponDamage = 0; // enemy can't do damage
 
             // make the velocity zero, and all enemies will be knockbacked with similar force
             rb2D.velocity = new Vector3(0, 0, 0);
@@ -85,6 +91,7 @@ namespace WOS.Core
             animator.enabled = true;
             enemyAI.enabled = true;
             spriteRenderer.material.color = new Color(1f, 1f, 1f, 1f);
+            enemyWeapon.weaponDamage = currentWeaponDamage; // enemy can do damage again
         }
 
         public bool IsDead() // use it for later(scoring??)

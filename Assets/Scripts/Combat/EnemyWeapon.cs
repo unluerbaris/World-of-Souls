@@ -5,7 +5,7 @@ namespace WOS.Combat
 {
     public class EnemyWeapon : MonoBehaviour
     {
-        [SerializeField] float weaponDamage = 25f;
+        public float weaponDamage = 25f;
 
         private void OnCollisionStay2D(Collision2D collision)
         {

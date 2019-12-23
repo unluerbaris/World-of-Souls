@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4587009159067869255}
   - component: {fileID: 199880992129940835}
   - component: {fileID: 4587009159067869254}
-  - component: {fileID: 4587009159067869273}
   - component: {fileID: 4587009159067869272}
   - component: {fileID: 4587009159067869275}
   - component: {fileID: 6279911856101699436}
@@ -138,19 +137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 8
   jumpForce: 5.8
---- !u!114 &4587009159067869273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4587009159067869276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4f19b06d3aad9b48999917b32814bd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeBetweenAttacks: 0.25
 --- !u!95 &4587009159067869272
 Animator:
   serializedVersion: 3
