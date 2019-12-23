@@ -18,7 +18,7 @@ namespace WOS.Core
         [SerializeField] float health = 100f;
         [SerializeField] float activateEnemyTime = 0.6f; // after got hit
         [SerializeField] int enemyKillPoints = 50;
-        float knockBackForce = 200f;
+        float knockBackForce = 230f;
         float currentWeaponDamage;
         [HideInInspector] public float damageTaken;
 
@@ -82,7 +82,7 @@ namespace WOS.Core
 
             //calculate the normal vector between enemy and player and add force
             Vector2 dir = (transform.position - player.transform.position).normalized; 
-            dir.y = 0.3f;
+            dir.y = 0.5f;
             rb2D.AddForce(dir * knockBackForce);
         }
 
@@ -92,11 +92,6 @@ namespace WOS.Core
             enemyAI.enabled = true;
             spriteRenderer.material.color = new Color(1f, 1f, 1f, 1f);
             enemyWeapon.weaponDamage = currentWeaponDamage; // enemy can do damage again
-        }
-
-        public bool IsDead() // use it for later(scoring??)
-        {
-            return isDead;
         }
 
         private void Die(int pointsToPlayer)
