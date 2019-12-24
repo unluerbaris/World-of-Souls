@@ -13,10 +13,6 @@ namespace WOS.Core
         private void Awake()
         {
             gameOverCanvas.enabled = false;
-            if (winCanvas == null)
-            {
-                return;
-            }
             winCanvas.enabled = false;
         }
 
