@@ -98,3 +98,15 @@ MonoBehaviour:
     pitch: 1
     audioSource: {fileID: 0}
     loop: 0
+  - clip: {fileID: 8300000, guid: 69118f56591d7a44c974e288ec5caa26, type: 3}
+    soundName: Hover
+    volume: 0.5
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: 23569064cbab9344ab6fa33a7faf0b1f, type: 3}
+    soundName: Click
+    volume: 0.5
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
