@@ -34,7 +34,7 @@ namespace WOS.Core
 
         private void Start()
         {
-          //  PlaySound("Theme"); // play theme 
+            PlaySound("Theme"); // play theme 
         }
 
         public void PlaySound(string name)

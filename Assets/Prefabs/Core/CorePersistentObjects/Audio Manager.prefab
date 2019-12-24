@@ -68,9 +68,9 @@ MonoBehaviour:
     pitch: 1
     audioSource: {fileID: 0}
     loop: 0
-  - clip: {fileID: 8300000, guid: 029f76cedc71fe747a210a273ecf1bfc, type: 3}
+  - clip: {fileID: 8300000, guid: 03acad4c3ce7b1d46998ea0fa105b5d3, type: 3}
     soundName: Theme
-    volume: 0.4
+    volume: 0.3
     pitch: 1
     audioSource: {fileID: 0}
     loop: 1
