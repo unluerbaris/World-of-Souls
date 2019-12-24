@@ -14,7 +14,6 @@ namespace WOS.Core
         HealthBar healthBar;
         PlayerController playerController;
         
-
         [SerializeField] float health = 250f;
         float startHealth;
         [SerializeField] float healthCanGetFromPotions = 50f;
