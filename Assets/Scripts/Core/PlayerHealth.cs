@@ -6,19 +6,17 @@ namespace WOS.Core
 {
     public class PlayerHealth : MonoBehaviour
     {
-        Animator animator;
         SpriteRenderer spriteRenderer;
         Rigidbody2D rb2D;
         AudioManager audioManager;
         [SerializeField] GameObject healthBarObject;
         HealthBar healthBar;
-        PlayerController playerController;
-        
+
         [SerializeField] float health = 250f;
         float startHealth;
         [SerializeField] float healthCanGetFromPotions = 50f;
         float transparentTime = 1f; // after got hit
-        bool isDead = false;
+        [HideInInspector] public bool isDead = false;
         [HideInInspector] public bool gotHit = false;
         bool untouchableState = false;
         [HideInInspector] public float damageTaken;
@@ -26,11 +24,9 @@ namespace WOS.Core
         private void Start()
         {
             SetHealthBarAtStart();
-            animator = GetComponent<Animator>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             rb2D = GetComponent<Rigidbody2D>();
             audioManager = FindObjectOfType<AudioManager>();
-            playerController = GetComponent<PlayerController>();
         }
 
         private void SetHealthBarAtStart()
@@ -99,10 +95,10 @@ namespace WOS.Core
             isDead = true;
 
             // avoid any position change
-            playerController.enabled = false;
+            GetComponent<PlayerController>().enabled = false;
             rb2D.velocity = new Vector3(0, 0, 0);
 
-            animator.SetTrigger("isDead");
+            GetComponent<Animator>().SetTrigger("isDead");
             audioManager.PlaySound("HeroDeath");
 
            // animator.SetTrigger("isDead");

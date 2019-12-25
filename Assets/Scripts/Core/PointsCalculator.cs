@@ -7,9 +7,10 @@ namespace WOS.Core
     public class PointsCalculator : MonoBehaviour
     {
         [SerializeField] int points = 100;
-        bool takingAway = false;
         [SerializeField] float secondsToTakePoints = 0.3f; // for ex: in every 0.3sec take 1 point
         [SerializeField] Text pointsText;
+        [SerializeField] GameObject player;
+        bool takingAway = false;
 
         private void Start()
         {
@@ -18,7 +19,11 @@ namespace WOS.Core
 
         private void Update()
         {
-            if (takingAway == false && points > 0)
+            if (player == null)// if player is dead return
+            {
+                return;
+            } 
+            if (!takingAway && points > 0)
             {
                 StartCoroutine(TakePoints());
             }

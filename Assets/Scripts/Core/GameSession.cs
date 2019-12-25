@@ -12,6 +12,7 @@ namespace WOS.Core
 
         private void Awake()
         {
+            Time.timeScale = 1; // 
             gameOverCanvas.enabled = false;
             winCanvas.enabled = false;
         }
@@ -29,12 +30,14 @@ namespace WOS.Core
         {
             yield return new WaitForSeconds(2f); // wait for seconds, before show the game over screen
             gameOverCanvas.enabled = true;
+            Time.timeScale = 0; // pause gameplay
         }
 
         public IEnumerator LoadWinScreen()
         {
             yield return new WaitForSeconds(1f);
             winCanvas.enabled = true;
+            Time.timeScale = 0; // pause gameplay
         }
     }
 }
