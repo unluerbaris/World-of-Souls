@@ -8,6 +8,7 @@ namespace WOS.Core
     {
         [SerializeField] int points = 100;
         [SerializeField] float secondsToTakePoints = 0.3f; // for ex: in every 0.3sec take 1 point
+        [SerializeField] float loseHealthInSec = 10f;
         [SerializeField] Text pointsText;
         [SerializeField] GameObject player;
         bool takingAway = false;
@@ -27,6 +28,10 @@ namespace WOS.Core
             {
                 StartCoroutine(TakePoints());
             }
+            else if (points <= 0 && !takingAway)
+            {
+                StartCoroutine(TakeHealth());
+            }
         }
 
         public void AddPoints(int pointsToAdd)
@@ -41,6 +46,14 @@ namespace WOS.Core
             yield return new WaitForSeconds(secondsToTakePoints);
             points -= 1;
             pointsText.text = points.ToString();
+            takingAway = false;
+        }
+
+        IEnumerator TakeHealth() // take player's health after points reach to zero
+        {
+            takingAway = true;
+            yield return new WaitForSeconds(2);
+            StartCoroutine(player.GetComponent<PlayerHealth>().TakeDamage(loseHealthInSec));
             takingAway = false;
         }
         
