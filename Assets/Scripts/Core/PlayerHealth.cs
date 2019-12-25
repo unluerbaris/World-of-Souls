@@ -16,7 +16,7 @@ namespace WOS.Core
         float startHealth;
         [SerializeField] float healthCanGetFromPotions = 50f;
         float transparentTime = 1f; // after got hit
-        [HideInInspector] public bool isDead = false;
+        bool isDead = false;
         [HideInInspector] public bool gotHit = false;
         bool untouchableState = false;
         [HideInInspector] public float damageTaken;
