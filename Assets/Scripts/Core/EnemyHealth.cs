@@ -9,7 +9,7 @@ namespace WOS.Core
     {
         Animator animator;
         EnemyAI enemyAI;
-        Score score;
+        PointsCalculator pointsCalculator;
         SpriteRenderer spriteRenderer;
         Rigidbody2D rb2D;
         AudioManager audioManager;
@@ -32,7 +32,7 @@ namespace WOS.Core
             enemyAI = GetComponent<EnemyAI>();
             enemyWeapon = GetComponent<EnemyWeapon>();
             currentWeaponDamage = enemyWeapon.weaponDamage; // get the current weapon damage value
-            score = FindObjectOfType<Score>();
+            pointsCalculator = FindObjectOfType<PointsCalculator>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             rb2D = GetComponent<Rigidbody2D>();
             audioManager = FindObjectOfType<AudioManager>();
@@ -99,7 +99,7 @@ namespace WOS.Core
             isDead = true;
 
             audioManager.PlaySound("EnemyDeath");
-            score.AddToScore(pointsToPlayer);
+            pointsCalculator.AddPoints(pointsToPlayer);
             // avoid any position change
             enemyAI.enabled = false;
             rb2D.velocity = new Vector3(0, 0, 0);
