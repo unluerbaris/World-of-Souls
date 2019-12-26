@@ -171,12 +171,12 @@ PrefabInstance:
     - target: {fileID: 3205996510393334707, guid: dda9a67186237184e9affbcb5ba30f1d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 629
+      value: 710
       objectReference: {fileID: 0}
     - target: {fileID: 3205996510393334707, guid: dda9a67186237184e9affbcb5ba30f1d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 411
+      value: 415
       objectReference: {fileID: 0}
     - target: {fileID: 3205996510393334707, guid: dda9a67186237184e9affbcb5ba30f1d,
         type: 3}
@@ -220,13 +220,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205996510393334706, guid: dda9a67186237184e9affbcb5ba30f1d,
         type: 3}
-      propertyPath: m_Text
-      value: 'Soul Meter:'
+      propertyPath: m_FontData.m_Alignment
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3205996510393334706, guid: dda9a67186237184e9affbcb5ba30f1d,
         type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 4
+      propertyPath: m_Text
+      value: 'Soul Meter:'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dda9a67186237184e9affbcb5ba30f1d, type: 3}
