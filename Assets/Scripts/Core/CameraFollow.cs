@@ -15,7 +15,7 @@ namespace WOS.Core
             CameraPositionUpdate(startTimeOffset);
         }
 
-        void Update()
+        void LateUpdate()
         {
             if (player == null) return;
             CameraPositionUpdate(updateTimeOffset);

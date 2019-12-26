@@ -1,5 +1,43 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7398475515320298426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4009024361465720719}
+  m_Layer: 5
+  m_Name: Meters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4009024361465720719
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7398475515320298426}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8099510703661500827}
+  - {fileID: 8099510703028489446}
+  - {fileID: 4178356794520712170}
+  m_Father: {fileID: 8099510702146135447}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -960, y: -540}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8099510702146135451
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,9 +68,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 8099510703661500827}
-  - {fileID: 8099510703028489446}
-  - {fileID: 4178356794520712170}
+  - {fileID: 4009024361465720719}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74,12 +110,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -106,12 +142,22 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 8099510702146135447}
+    m_TransformParent: {fileID: 4009024361465720719}
     m_Modifications:
     - target: {fileID: 3205996510393334704, guid: dda9a67186237184e9affbcb5ba30f1d,
         type: 3}
       propertyPath: m_Name
       value: Soul Meter Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205996510393334706, guid: dda9a67186237184e9affbcb5ba30f1d,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205996510393334706, guid: dda9a67186237184e9affbcb5ba30f1d,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Soul Meter:'
       objectReference: {fileID: 0}
     - target: {fileID: 3205996510393334707, guid: dda9a67186237184e9affbcb5ba30f1d,
         type: 3}
@@ -218,16 +264,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3205996510393334706, guid: dda9a67186237184e9affbcb5ba30f1d,
-        type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3205996510393334706, guid: dda9a67186237184e9affbcb5ba30f1d,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Soul Meter:'
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dda9a67186237184e9affbcb5ba30f1d, type: 3}
 --- !u!224 &4178356794520712170 stripped
@@ -241,12 +277,17 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 8099510702146135447}
+    m_TransformParent: {fileID: 4009024361465720719}
     m_Modifications:
     - target: {fileID: 3205996510393334704, guid: dda9a67186237184e9affbcb5ba30f1d,
         type: 3}
       propertyPath: m_Name
       value: Points Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205996510393334706, guid: dda9a67186237184e9affbcb5ba30f1d,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3205996510393334707, guid: dda9a67186237184e9affbcb5ba30f1d,
         type: 3}
@@ -266,17 +307,17 @@ PrefabInstance:
     - target: {fileID: 3205996510393334707, guid: dda9a67186237184e9affbcb5ba30f1d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3205996510393334707, guid: dda9a67186237184e9affbcb5ba30f1d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3205996510393334707, guid: dda9a67186237184e9affbcb5ba30f1d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3205996510393334707, guid: dda9a67186237184e9affbcb5ba30f1d,
         type: 3}
@@ -353,11 +394,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3205996510393334706, guid: dda9a67186237184e9affbcb5ba30f1d,
-        type: 3}
-      propertyPath: m_Text
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dda9a67186237184e9affbcb5ba30f1d, type: 3}
 --- !u!224 &8099510703028489446 stripped
@@ -371,7 +407,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 8099510702146135447}
+    m_TransformParent: {fileID: 4009024361465720719}
     m_Modifications:
     - target: {fileID: 2112463915412039068, guid: aedeee67e15bc914286e1a811e4ee514,
         type: 3}
@@ -396,17 +432,17 @@ PrefabInstance:
     - target: {fileID: 2112463915412039069, guid: aedeee67e15bc914286e1a811e4ee514,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2112463915412039069, guid: aedeee67e15bc914286e1a811e4ee514,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2112463915412039069, guid: aedeee67e15bc914286e1a811e4ee514,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2112463915412039069, guid: aedeee67e15bc914286e1a811e4ee514,
         type: 3}

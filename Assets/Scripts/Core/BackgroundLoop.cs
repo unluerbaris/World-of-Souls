@@ -12,7 +12,7 @@ namespace WOS.Core
         void Awake()
         {
             mainCamera = gameObject.GetComponent<Camera>();
-            screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width,
+            screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width * 2,
                                                                      Screen.height,
                                                                      mainCamera.transform.position.z));
             foreach (GameObject obj in backgrounds)
